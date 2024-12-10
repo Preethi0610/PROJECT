@@ -14,22 +14,3 @@ model users {
   password String? @db.VarChar(Max)
 }
 
-model User_interactions {
-  interactionId  Int      @id @default(autoincrement())
-  userId         Int
-  movieId        Int
-  interactionType String   @db.VarChar(50)
-  timestamp      DateTime @default(now())
-
-  user   User @relation(fields: [userId], references: [id])
-  movie  Movie @relation(fields: [movieId], references: [movie_id])
-}
-
-model moviess {
-  movie_id    Int      @id @default(autoincrement()) @map("movie_id")
-  title       String
-  genre       String
-  image       String
-  description String
-  release_year Int
-}
